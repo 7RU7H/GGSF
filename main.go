@@ -35,27 +35,27 @@ func convStrSliceNumToHex(s []string) byte {
 }
 
 // Test to consider to achieve this - literal strings that have quotes inside
-func requoteSanatizedInputStr(input, unwantedQuotes, desiredQuotes string) (error string) {
-	return strings.Replace(input, unwantedQuotes, desiredQuotes, -1), error
+func requoteSanatizedInputStr(safePayload, unwantedQuotes, desiredQuotes string) (error string) {
+	return strings.Replace(safePayload, unwantedQuotes, desiredQuotes, -1), error
 }
 
 // Test to consider to achieve this
-func urlPathEncode(input string) (error string) {
-	return url.PathEscape(input)
+func urlPathEncode(safePayload string) (error string) {
+	return url.PathEscape(safePayload)
 }
 
-func urlPathEncode(input string) (error string) {
-	return url.QueryEscape(input)
+func urlPathEncode(safePayload string) (error string) {
+	return url.QueryEscape(safePayload)
 }
 
-func urlPathEncode(input string) (error string) {
-	return url.PathUnEscape(input)
+func urlPathEncode(safePayload string) (error string) {
+	return url.PathUnEscape(safePayload)
 }
 
-func urlPathEncode(input string) (error string) {
-	return url.QueryUnescape(input)
+func urlPathEncode(safePayload string) (error string) {
+	return url.QueryUnescape(safePayload)
 }
 
-func charEscape(input, escapePattern, escapeSymbol string) (error string) {
-	return strings.Replace(input, escapePattern, escapeSymbol, -1), error
+func charEscape(safePayload, escapePattern, escapeSymbol string) (error string) {
+	return strings.Replace(safePayload, escapePattern, escapeSymbol, -1), error
 }
