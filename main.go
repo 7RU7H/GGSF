@@ -15,12 +15,67 @@ import (
 //	return hex.EncodeToString([]byte(str))
 //}
 
+
+
+// Store Metadata for testing, empirical comparisons and not cluttering main  
+type metadata struct {
+	badchars string
+	cmd string
+	outputOption int // 0 stdout; 1 file
+	outputFilePath string
+}
+
 // Marshall data for segemetation, validiation and original diff compare
-type struct {
+type data struct {
+// stdin record for comparativity test
+
+// Safe String Character Map 
+	safeStringCharMap map
+
+// Byte version of stdin
+	bytePayload byte
+// For section by section micro transformation
+	ptrTransformStart int
+	prtTransFormEnd int
+}
+
+// For actual result and intended result from metadata logic
+type result struct {
 
 }
 
-func 
+
+
+
+// On initialisation covert to golang maliable bytes
+func (data *d) convertStdinToStore() error {
+	
+
+}
+
+func (data *d) initSafeStringCharMap() error {
+
+	d.safeStringCharMap := make(map[int]int)
+	// Update goHelp with old golang map best practices
+	// !! 
+	for i,char := range d.safeStringCharMap { 
+		d.safeStringCharMap[i] = strconv.Atoi(char)
+	}
+		
+}
+
+
+
+
+
+
+// Result 
+func (result *r) () {
+
+}
+
+
+
 
 
 func main() {
@@ -31,7 +86,7 @@ func main() {
 	//unicode crazy word to describe using weird characters
 	//escape -p [PATTERN] -e [PATTERN TO ESPACE WITH ACCEPTS MUTLIPLE CHARACTERS]
 	//lfi -e url -b "."
-	//casechange - create all permuations for case
+	//recase - create all permuations for case
 
 	//url -p
 	//url -q
@@ -51,6 +106,14 @@ func main() {
 	urlEncodeCommand.StringVar(&queryEscape, "-q", "", "Query Escape")
 	urlEncodeCommand.StringVar(&pathUnEscape, "-up", "", "Path Unescape"
 	urlEncodeCommand.StringVar(&queryUnEscape, "-uq", "", "Query Unescape")
+	urlEncodeCommand.StringVar(&payload, "-x", "", "Declare payload, must be final flag")
+	
+	// Requote
+	requoteCommand.StringVar(&payload, "-x", "", "Declare payload, must be final flag")
+	
+	// Escape with 
+	charEscCommand.StringVar(&payload, "-x", "", "Declare payload, must be final flag")
+
 	
 	var helpFlag, versionFlag string
         flag.StringVar(&helpFlag, "-h", "Help", "Help")
@@ -71,8 +134,25 @@ func main() {
 		flag.Lookup()
                 os.Exit(1)
         }
-	
 
+	// Positional arguements 
+	// After all flags is the payload
+
+
+	// Perform all checks and store for later checks
+	currentMetadata := metadata{
+	}
+	
+	// If Metadata checks do not throw incompatiblity errors convert data  
+	currentData := data{
+
+	}
+
+
+	// Payload Transformation starts
+
+
+	// Result construction and printing to 
 }
 
 
@@ -81,7 +161,12 @@ func deBinaryPathPayload() {
 
 }
 
+// STDIN handling
+// Alphanumeric or Special chars
+// ' ` "  
 
+
+// Non-standard Characters (later)
 
 
 // Test to consider to achieve this - literal strings that have quotes inside
